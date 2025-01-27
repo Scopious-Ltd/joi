@@ -5,7 +5,6 @@ const Path = require('path');
 const Webpack = require('webpack');
 const { BundleComparisonPlugin } = require('@mixer/webpack-bundle-compare');
 
-
 module.exports = {
     entry: '../lib/index.js',
     output: {
@@ -21,16 +20,14 @@ module.exports = {
         new BundleComparisonPlugin({
             file: '../stats.msp.gz',
             format: 'msgpack',
-            gzip: true,
+            gzip: true
         })
     ],
     module: {
         rules: [
             {
                 use: './lib/version-loader',
-                include: [
-                    Path.join(__dirname, '../package.json')
-                ]
+                include: [Path.join(__dirname, '../package.json')]
             },
             {
                 test: /\.js$/,
@@ -41,14 +38,14 @@ module.exports = {
                             [
                                 '@babel/preset-env',
                                 {
-                                    'targets': '> 1%, not IE 11, not dead'
+                                    targets: '> 1%, not IE 11, not dead'
                                 }
                             ]
                         ],
                         plugins: [
                             '@babel/plugin-transform-class-properties',
                             '@babel/plugin-transform-optional-chaining',
-                            '@babel/plugin-transform-nullish-coalescing-operator',
+                            '@babel/plugin-transform-nullish-coalescing-operator'
                         ]
                     }
                 }
@@ -61,28 +58,27 @@ module.exports = {
     },
     node: false,
     resolve: {
-      alias: {
-          [Path.join(__dirname, '../lib/annotate.js')]: false,
-          [Path.join(__dirname, '../lib/manifest.js')]: false,
-          [Path.join(__dirname, '../lib/trace.js')]: false,
-          [Path.join(__dirname, '../lib/types/binary.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/tlds/esm/index.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/address/esm/decode.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/bench.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/block.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/contain.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/flatten.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/intersect.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/isPromise.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/escapeHeaderAttribute.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/escapeJson.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/once.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/reachTemplate.js')]: false,
-          [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/wait.js')]: false,
-      },
-      fallback: {
-        url: false,
-        util: false,
-      }
+        alias: {
+            [Path.join(__dirname, '../lib/annotate.js')]: false,
+            [Path.join(__dirname, '../lib/trace.js')]: false,
+            [Path.join(__dirname, '../lib/types/binary.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/tlds/esm/index.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/address/esm/decode.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/bench.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/block.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/contain.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/flatten.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/intersect.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/isPromise.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/escapeHeaderAttribute.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/escapeJson.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/once.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/reachTemplate.js')]: false,
+            [Path.join(__dirname, '../node_modules/@hapi/hoek/lib/wait.js')]: false
+        },
+        fallback: {
+            url: false,
+            util: false
+        }
     }
 };
