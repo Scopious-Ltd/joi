@@ -14,7 +14,3 @@
 -   [Versions status](https://joi.dev/resources/status/#joi)
 -   [Changelog](https://joi.dev/resources/changelog/)
 -   [Project policies](https://joi.dev/policies/)
-
-## Scopious Notes
-
-Use the environment variable: SCOPIOUS_JOI_DEBUG to turn on debug error logging
