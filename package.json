@@ -6,21 +6,34 @@
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "browser": "dist/joi-browser.min.js",
+    "exports": {
+        ".": {
+            "browser": "./dist/joi-browser.min.js",
+            "import": "./lib/index.js",
+            "require": "./lib/index.js",
+            "default": "./lib/index.js"
+        },
+        "./package.json": "./package.json"
+    },
     "files": [
-        "lib/**/*",
-        "dist/*"
+        "lib/**",
+        "dist/**",
+        "browser/**",
+        "package.json",
+        "README.md",
+        "LICENSE"
     ],
     "keywords": [
         "schema",
         "validation"
     ],
     "dependencies": {
-        "@hapi/hoek": "^11.0.4",
-        "@hapi/tlds": "^1.0.6",
-        "@hapi/topo": "^6.0.2",
         "@hapi/address": "^5.1.1",
+        "@hapi/formula": "^3.0.2",
+        "@hapi/hoek": "^11.0.4",
         "@hapi/pinpoint": "^2.0.1",
-        "@hapi/formula": "^3.0.2"
+        "@hapi/tlds": "^1.0.6",
+        "@hapi/topo": "^6.0.2"
     },
     "devDependencies": {
         "@hapi/bourne": "^3.0.0",
